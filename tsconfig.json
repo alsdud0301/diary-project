@@ -6,8 +6,8 @@
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
+    "module": "CommonJS",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -17,10 +17,16 @@
         "name": "next"
       }
     ],
+    
+    // "ts-node": {
+    //   "esm": true
+    // }, 
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/services/UserService.js", "src/app/graphql", "src/lib/db.js", "index.js"],
   "exclude": ["node_modules"]
+  ,  "proxy":"http://localhost:5000"
 }
+ 
