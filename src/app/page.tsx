@@ -1,11 +1,33 @@
-import Image from "next/image";
-import React from "react";
-import Signup from "../../components/Signup";
+'use client';
+import styles from '../components/css/menubar.module.css'; // CSS Module import
+import React, { useEffect, useState } from "react";
+import { useAuth } from '../context/AuthContext';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import Menubar from '@/components/menubar';
 
-export default function Home() {
+const Home: React.FC = () => {
+  const [isClient, setIsClient] = useState(false);
+  const style = { textDecoration: 'none', color: 'black' };
+  const { user, logout } = useAuth();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await logout();
+    router.push('/login');
+  };
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
-    <>
-   <Signup/> 
-   </>
+    <Menubar />
   );
-}
+};
+
+export default Home;

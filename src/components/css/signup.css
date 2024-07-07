@@ -1,0 +1,108 @@
+.form_section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.submit-div{
+    background-color: #f9f9f9;
+    width : 23%;
+    height : 30%;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 10px;
+    box-shadow:  0px 0px 3px 0px white;
+    padding: 2% 0%;
+    
+}
+.logo{
+    margin : 0 auto;
+    text-align: center;
+    position: relative;
+    font-size : 60px;
+    font-weight: bold;
+    
+    padding : 15px;
+    width : 150px;
+    color : white;
+    margin-bottom : 3%;;
+    text-shadow: 3px 2px 8px  rgb(255, 255, 255);
+}
+.link{
+    text-decoration: none;
+    color : white;
+}
+.signup_header{
+    margin-top : 5%;
+}
+.name_input{
+    width: 93%;
+    padding : 10px;
+}
+.userID_input{
+    width: 93%;
+    padding : 10px;
+}
+.email_input{
+    width: 93%;
+    padding : 10px;
+}
+.password_input{
+    width: 93%;
+    padding : 10px;
+}
+.name_div{
+    margin : 7% 0;
+}
+.userID_div{
+    margin : 7% 0;
+}
+.email_div{
+    margin : 7% 0;
+}
+.password_div{
+    margin : 7% 0;
+}
+.signup_btn{
+    background-color: black;
+    border : none;
+    box-shadow: 0px 0px 3px 0px;
+    width: 330px;
+    height : 50px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    
+    color : white;
+}
+.link{
+    color : white;
+    text-decoration: none;
+    margin-top : 5%;
+}
+.login_link{
+    color : gray;
+    text-decoration: none;
+    font-size: 20%;
+    margin : 1% 2%;
+
+}
+.fpassword_link{
+    color : gray;
+    text-decoration: none;
+    font-size: 20%;
+    margin : 1% 2%;
+
+}
+.fid_link{
+    color : gray;
+    text-decoration: none;
+    font-size: 20%;
+    margin : 1% 2%;
+
+}
+.link_div{
+    text-align: center;
+    margin-top : 3%;
+}

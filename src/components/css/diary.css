@@ -1,0 +1,30 @@
+.diary_content{
+    background-color: white;
+    height: auto;
+    padding: 3% 3%;
+    /* position: absolute; */
+}
+.diary_section{
+    margin : 2% 15%;
+   
+}
+.title_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title{
+    background-color: black;
+    color : white;
+    border : 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width : auto;
+    height : auto;
+    font-size: 25px;
+    padding: 1% 1%;
+
+
+}

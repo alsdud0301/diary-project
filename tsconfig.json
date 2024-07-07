@@ -1,4 +1,4 @@
-{
+{   
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -12,6 +12,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "typeRoots": ["./node_modules/@types","./express-session.d.ts"],
     "plugins": [
       {
         "name": "next"
@@ -25,8 +26,8 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/services/UserService.js", "src/app/graphql", "src/lib/db.js", "index.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/services/UserService.js", "server.js"],
   "exclude": ["node_modules"]
-  ,  "proxy":"http://localhost:5000"
+  ,  "proxy":"http://localhost:3000"
 }
- 
+  
