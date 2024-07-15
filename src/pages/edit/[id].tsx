@@ -8,38 +8,30 @@ import { PrismaClient } from '@prisma/client';
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 const MyCalendar = dynamic(() => import('../../components/Calendar'), { ssr: false });
 
-const EditPage = ({ }) => {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [loading, setLoading] = useState(true);
+interface Diary{
+  diary: {
+  id: number;
+  diary_title: string;
+  diary_content: string;
+  diary_date: string;
+}
+
+}
+const EditPage : React.FC<Diary> = ({ diary }) => {
+  const [title, setTitle] = useState(diary.diary_title);
+  const [content, setContent] = useState(diary.diary_content);
+  const [selectedDate, setSelectedDate] = useState(new Date(diary.diary_date));
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const { id } = router.query;
-  const [selectedDate, setSelectedDate] = useState(new Date());
 
-  const handleDateChange = (date: React.SetStateAction<Date>) => {
-    setSelectedDate(date);
+  const handleDateChange = (date: Date | null) => {
+    if (date) {
+      setSelectedDate(date);
+    }
   };
 
-  useEffect(() => {
-    if (id) {
-      const fetchPost = async () => {
-        try {
-          const response = await axios.get(`/api/diary/${id}`);
-          const { diary_title, diary_content, diary_date } = response.data;
-          setTitle(diary_title);
-          setContent(diary_content);
-          setSelectedDate(new Date(diary_date));
-          setLoading(false);
-        } catch (error) {
-          console.error(error);
-          setLoading(false);
-        }
-      };
-      fetchPost();
-    }
-  }, [id]);
-
-  const handleEditorChange = (content: React.SetStateAction<string>) => {
+  const handleEditorChange = (content: string) => {
     setContent(content);
   };
 
@@ -56,10 +48,6 @@ const EditPage = ({ }) => {
     }
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <section className='write_section'>
       <div className='write_div'>
@@ -71,7 +59,7 @@ const EditPage = ({ }) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          <MyCalendar onChange={handleDateChange} value={selectedDate} />
+          <MyCalendar selectedDate={selectedDate} onChange={handleDateChange} />
         </div>
         <ReactQuill
           className='quill'

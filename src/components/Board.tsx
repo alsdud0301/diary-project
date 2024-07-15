@@ -51,6 +51,7 @@ const Board = () => {
 
   useEffect(() => {
     fetchDiaries();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const formatMonth = (dateString: string) => {
