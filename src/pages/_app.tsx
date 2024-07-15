@@ -8,7 +8,7 @@ import '../components/css/global.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const showMenubar = ['/','/home','/board','/write','/diary','/board/[id]'];
+  const showMenubar = ['/','/profile','/home','/board','/write','/diary','/board/[id]'];
    
   return (
     <AuthProvider>

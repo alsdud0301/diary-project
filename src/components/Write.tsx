@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import Mycalendar from './Calendar';
+import Mycalendar from './MonthPicker';
 import '../components/css/write.css'
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 import 'react-quill/dist/quill.snow.css';
@@ -9,8 +9,10 @@ import dynamic from 'next/dynamic';
 const CreatePost = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  
+  // const [fileURL, setFileURL] = useState<string>("");
+  // const imgUploadInput = useRef<HTMLInputElement | null>(null);
   const router = useRouter();
+  
   const handleEditorChange = (content: string) => {
     setContent(content);
   };
@@ -55,6 +57,9 @@ const CreatePost = () => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
+    
+    </div>
+    <div className='calendar'>
     <Mycalendar onChange={handleDateChange} value={selectedDate} />
     </div>
       <ReactQuill
@@ -64,8 +69,9 @@ const CreatePost = () => {
         onChange={handleEditorChange}
       />
      
-
+    <div className='btn_div'>
       <button className="writebtn" onClick={handleSubmit}>쓰기 완료!</button>
+      </div>
     </div>
     </section>
   );

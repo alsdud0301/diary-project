@@ -22,11 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           diary_date: true,
         },
       });
-      const diary = diarys.map(diary => ({
-        ...diary,
-        diary_date: diary.diary_date.toString(),
-        
-      }));
+   
       res.status(200).json(diarys);
     } catch (error) {
       console.error('Failed to fetch posts:', error);

@@ -26,12 +26,12 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     console.log('Attempting to login...'); // 로그인 시도 로그
     try {
       const response = await axios.post('/api/login', { userID, password});
-      console.log('Login response:', response.data); // 응답 로그
+     
       if (response.data.isSuccess) {
         setUser(response.data.user);
         localStorage.setItem('user', JSON.stringify(response.data.user)); // 로그인 상태를 로컬 스토리지에 저장
         localStorage.setItem('userID', JSON.stringify(userID)); // 로그인 상태를 로컬 스토리지에 저장
-        router.push('/');
+        router.push('/board');
       }
     } catch (error) {
       console.error('Failed to login:', error);
@@ -61,7 +61,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         const parsedUser = JSON.parse(storedUser);
         if (parsedUser) {
           setUser(parsedUser);
-          console.log('Parsed user from localStorage:', parsedUser); // 파싱된 사용자 로그
+          
         }
       } catch (error) {
         console.error('Failed to parse user from localStorage:', error);

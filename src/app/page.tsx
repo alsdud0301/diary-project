@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from '../context/AuthContext';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import Menubar from '@/components/menubar';
+import Login from "@/components/Login"
 
 const Home: React.FC = () => {
   const [isClient, setIsClient] = useState(false);
@@ -12,10 +12,6 @@ const Home: React.FC = () => {
   const { user, logout } = useAuth();
   const router = useRouter();
 
-  const handleLogout = async () => {
-    await logout();
-    router.push('/login');
-  };
 
   useEffect(() => {
     setIsClient(true);
@@ -26,7 +22,7 @@ const Home: React.FC = () => {
   }
 
   return (
-    <Menubar />
+    <Login />
   );
 };
 

@@ -1,23 +1,55 @@
 .quill{
     background-color: white;
-    height : 50%;
+    height : 400px;
+    position: relative;
+    border-radius: 0px 0px 10px 10px;
+    font-size : 15px;
+    border : 1px solid rgb(52, 141, 219);
+    
+}
+.ql-container.ql-snow {
+    border: none !important;
+}
+.ql-toolbar.ql-snow{
+    border-bottom: 1px solid rgb(52, 141, 219) !important;
 }
 .writebtn{
-    border: white;
-    background-color: lightgray;
+    border : none;
+    background-color:  rgb(52, 141, 219);;
     box-shadow: 0px 0px 10px 0px white;
     width :15%;
     padding :1%;
+    float: right;
+    border-radius: 10px;
+    color : white;
+    font-weight : bold;
+    font-size : 15px;
+
 }
 .write_section{
     position: relative;
-    margin: 3% 10%;
+    margin: 5% 15%;
 }
 .diary_info{
     display: flex;
     margin-bottom: 3%;
 }
 .diary_title{
-    width : 50%;
+    position: relative;
+    width : 100%;
     padding: 1%;
+    border-radius: 10px;
+    border : 3px solid rgb(52, 141, 219);
+    font-size : 20px;
+    box-shadow: 0px 0px 5px 0px white;
+}
+.calendar{
+    margin-bottom : 2%;
+}
+
+.btn_div{
+    position: relative;
+    margin-top : 20px;
+    width : 100%;
+    
 }

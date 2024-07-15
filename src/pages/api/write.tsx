@@ -22,7 +22,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           diary_content,
           
          author: { connect: { userID} },
-         diary_date:selectedDate   
+         diary_date:selectedDate
+         
         },
       });
       res.status(200).json(post);

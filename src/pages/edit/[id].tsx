@@ -8,7 +8,7 @@ import { PrismaClient } from '@prisma/client';
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 const MyCalendar = dynamic(() => import('../../components/Calendar'), { ssr: false });
 
-const EditPage = ({ diary }) => {
+const EditPage = ({ }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(true);
@@ -16,7 +16,7 @@ const EditPage = ({ diary }) => {
   const { id } = router.query;
   const [selectedDate, setSelectedDate] = useState(new Date());
 
-  const handleDateChange = (date) => {
+  const handleDateChange = (date: React.SetStateAction<Date>) => {
     setSelectedDate(date);
   };
 
@@ -39,7 +39,7 @@ const EditPage = ({ diary }) => {
     }
   }, [id]);
 
-  const handleEditorChange = (content) => {
+  const handleEditorChange = (content: React.SetStateAction<string>) => {
     setContent(content);
   };
 
@@ -85,7 +85,7 @@ const EditPage = ({ diary }) => {
   );
 };
 
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async (context: { params: { id: any; }; }) => {
   const { id } = context.params;
   const prisma = new PrismaClient();
   const diary = await prisma.diary.findUnique({

@@ -2,19 +2,23 @@
     background-color: white;
     height: auto;
     padding: 3% 3%;
+    border-radius: 0px 0px 10px 10px;
     /* position: absolute; */
+    box-shadow: 0px 0px 10px 0px white;
 }
 .diary_section{
     margin : 2% 15%;
    
 }
 .title_container{
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    
 }
 .title{
-    background-color: black;
+    box-shadow: 0px 0px 10px 0px white;
+    background-color: rgb(2, 113, 181);
     color : white;
     border : 1px solid white;
     display: flex;
@@ -25,6 +29,25 @@
     height : auto;
     font-size: 25px;
     padding: 1% 1%;
+    border-radius: 10px 10px 0px 0px;
+   
 
 
+}
+.diary_nav{
+    margin : 2% 5%;
+}
+.listbtn{
+    background-color: white;
+    border: 2px solid #0271b5;
+    box-shadow: 0px 0px 3px 0px white;
+    border-radius: 3px;
+    width : 5%;
+    padding : 10px;
+    font-weight: bold;
+
+}
+
+.edit_btn{
+    
 }

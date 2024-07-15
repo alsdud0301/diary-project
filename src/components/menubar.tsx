@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 const Menubar: React.FC= () => {
     const [isClient, setIsClient] = useState(false);
-    const style = { textDecoration: 'none', color: 'white' };
+    const style = { textDecoration: 'none', color: 'black' };
     const { user, logout } = useAuth();
     const router = useRouter();
   
@@ -31,13 +31,13 @@ const Menubar: React.FC= () => {
             <span className={styles.logoP}>Diary</span>
             <div className={styles.menubarDivUl}>
               <ul className={styles.menubarUl}>
-                <li className={styles.menubarLi}>
-                    <Link style={style} href="/home">홈</Link>
-                </li>
+              
                 <li className={styles.menubarLi}>
                   <Link style={style} href="/board">내일기장</Link>
                 </li>
-                <li className={styles.menubarLi}>내프로필</li>
+                {/* <li className={styles.menubarLi}>
+                  <Link style={style} href="/profile">내프로필</Link>
+                </li> */}
                 {user ? (
                   <li className={styles.menubarLi}>
                     <button className={styles.logoutbtn} onClick={handleLogout}>로그아웃</button>

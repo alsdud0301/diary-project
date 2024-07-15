@@ -1,0 +1,65 @@
+.profile_section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width : 100%;
+
+
+}
+.profile_div{
+   
+    width : 60%;
+   
+    
+    box-shadow: 0px 0px 8px 0px lightgray;
+    border-radius: 5px;
+    margin : 10%;
+    border : 2px solid  rgb(52, 141, 219);
+    
+    
+}
+
+.user{
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid white;
+
+}
+.profile{
+    
+    float: left;
+    width : 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+.name_p{
+    width : 50%;
+    font-size : 20px;
+    font-weight : bold;
+}
+.name_container{
+
+}
+
+.info_div{
+    margin: 0% 23%;
+    padding : 1%;
+    position: relative;
+}
+.password_div{
+    margin : 1%;
+}
+.email_div{
+    margin : 1%;
+}
+.password_input{
+    padding: 1%;
+    font-size : 15px;
+}
+.email_input{
+    padding: 1%;
+    font-size : 15px;
+}

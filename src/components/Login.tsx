@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import style from "../components/css/login.module.css"
 import Link from 'next/link';
 const Login: React.FC = () => {
@@ -14,7 +15,7 @@ const Login: React.FC = () => {
     try {
       await login(userID, password);
       console.log(userID,password)
-      router.push('/');
+      router.push('/board');
     } catch (error) {
       console.error('Failed to login:', error);
       alert('로그인에 실패했습니다.');

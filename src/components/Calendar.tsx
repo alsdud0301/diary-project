@@ -1,28 +1,40 @@
-import React, { useState } from 'react';
-import Calendar from 'react-calendar';
-import moment from 'moment';
-//import 'react-calendar/dist/Calendar.css'; // react-calendar 스타일 불러오기
+import React from 'react';
+import "./css/monthpicker.css"
+import 'react-datepicker/dist/react-datepicker.css'
 
-const MyCalendar = ({ onChange, value }) => {
-    const [nowDate, setNowDate] = useState("날짜");
-    const [isOpen, setIsOpen] = useState(false);
+interface MonthPickerProps {
+  selectedDate: Date;
+  onChange: (date: Date) => void;
+}
 
-    const handleToggleCalendar = () => {
-        setIsOpen(!isOpen);
-    };
+const MonthPicker: React.FC<MonthPickerProps> = ({ selectedDate, onChange }) => {
+  const handleMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const month = parseInt(event.target.value, 10);
+    const newDate = new Date(selectedDate.getFullYear(), month, 1);
+    onChange(newDate);
+  };
 
-    const handleDateChange = (selectedDate: moment.MomentInput) => {
-        onChange(selectedDate);
-        setIsOpen(false);
-        setNowDate(moment(selectedDate).format("YYYY년 MM월 DD일"));
-    };
+  const handleYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const year = parseInt(event.target.value, 10);
+    const newDate = new Date(year, selectedDate.getMonth(), 1);
+    onChange(newDate);
+  };
 
-    return (
-        <div>
-            <button onClick={handleToggleCalendar}>{nowDate}</button>
-            {isOpen && <Calendar onChange={handleDateChange} value={value} />}
-        </div>
-    );
+  return (
+    <div className='monthpicker'>
+      <select className="select" value={selectedDate.getFullYear()} onChange={handleYearChange}>
+        {Array.from({ length: 10 }, (_, i) => {
+          const year = new Date().getFullYear() - 5 + i;
+          return <option key={year} value={year}>{year}</option>;
+        })}
+      </select>
+      <select className="select" value={selectedDate.getMonth()} onChange={handleMonthChange}>
+        {Array.from({ length: 12 }, (_, i) => (
+          <option key={i} value={i}>{i + 1}</option>
+        ))}
+      </select>
+    </div>
+  );
 };
 
-export default MyCalendar;
+export default MonthPicker;

@@ -10,9 +10,15 @@
     
     padding : 15px;
     width : 150px;
-    color : white;
+    color :  rgb(52, 141, 219);
+    text-decoration: none;
     margin-bottom : 3%;;
-    text-shadow: 3px 2px 8px  rgb(255, 255, 255);
+   
+}
+.link{
+    color :  rgb(52, 141, 219);
+    text-decoration: none;
+    text-shadow: 3px 2px 8px  rgb(181, 181, 181);
 }
 .login_section{
     display: flex;
@@ -26,9 +32,11 @@
     flex-direction: column; 
     align-items: center; 
     padding: 4%;
-    border: 1px solid #ccc;
+
     border-radius: 10px;
     background-color: #f9f9f9;
+    border : 1px solid lightgray;
+    box-shadow:  0px 0px 7px 0px gray;
 }
 .userID_box{
    
@@ -47,7 +55,7 @@ margin: 10px 0;
   border-radius: 5px;
 }
 .loginbtn{
-    background-color: black;
+    background-color: rgb(52, 141, 219);
     border : none;
     box-shadow: 0px 0px 3px 0px;
     width: 330px;
@@ -57,11 +65,7 @@ margin: 10px 0;
     font-size: 20px;
     color : white;
 }
-.link{
-    color : white;
-    text-decoration: none;
-    margin-top : 5%;
-}
+
 .signup_link{
     color : gray;
     text-decoration: none;

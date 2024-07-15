@@ -1,0 +1,26 @@
+/* 기본 스타일 덮어쓰기 */
+.react-datepicker {
+    font-family: Arial, sans-serif;
+    border: 1px solid #c3c3c3;
+  }
+  
+  .react-datepicker__header {
+    background-color: #f0f0f0;
+  }
+  
+  .react-datepicker__day--selected {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .react-datepicker__day--today {
+    font-weight: bold;
+  }
+  
+  .my-custom-datepicker {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+  }
+  
