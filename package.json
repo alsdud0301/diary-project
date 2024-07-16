@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"nodeserver.js\" \"next dev\"",
-    "build": "next build",
+    "build": "prismagenerate && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
