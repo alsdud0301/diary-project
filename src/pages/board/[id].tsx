@@ -7,9 +7,7 @@ import { useRouter } from 'next/router';
 import '../../components/css/diary.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-
-const prisma = new PrismaClient();
-
+import prisma from '../../lib/prisma'
 interface DiaryProps {
   diary: {
     id: number;
