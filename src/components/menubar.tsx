@@ -1,4 +1,3 @@
-'use client';
 import styles from '../components/css/menubar.module.css'; // CSS Module import
 import React, { useEffect, useState } from "react";
 import { useAuth } from '../context/AuthContext';
