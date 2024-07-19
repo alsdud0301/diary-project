@@ -7,7 +7,9 @@ import { useRouter } from 'next/navigation';
 interface User {
   id: string;
   name: string;
-  // 필요한 다른 속성들
+  userID: string;
+  password: string;
+  email: string;
 }
 
 interface AuthContextType {
@@ -23,7 +25,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const router = useRouter();
 
   const login = async (userID: string, password: string) => {
-    console.log('Attempting to login...'); // 로그인 시도 로그
+
     try {
       const response = await axios.post('/api/login', { userID, password});
      
@@ -44,7 +46,9 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     try {
       await axios.post('/api/logout');
       setUser(null);
-      localStorage.removeItem('user'); // 로컬 스토리지에서 로그인 상태 삭제
+      localStorage.removeItem('user');
+      localStorage.removeItem('userID');
+      localStorage.removeItem('login_token');
       router.push('/login');
     } catch (error) {
       console.error('Failed to logout:', error);
@@ -53,8 +57,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   useEffect(() => {
-    console.log('useEffect triggered'); // useEffect 호출 로그
-    // 로컬 스토리지에서 사용자 정보를 가져와 설정하는 로직
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       try {
