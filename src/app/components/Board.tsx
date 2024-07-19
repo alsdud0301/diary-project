@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
-import MonthPicker from "@/components/Calendar";
+import MonthPicker from "../components/Calendar";
 
 interface Diary {
   id: number;

@@ -1,21 +1,20 @@
 'use client'
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { useRouter } from 'next/navigation';
+
 import style from "../components/css/login.module.css"
 import Link from 'next/link';
 const Login: React.FC = () => {
   const [userID, setUserID] = useState('');
   const [password, setPassword] = useState('');
   const { login } = useAuth();
-  const router = useRouter();
+
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       await login(userID, password);
-      console.log(userID,password)
-      router.push('/board');
+      
     } catch (error) {
       console.error('Failed to login:', error);
       alert('로그인에 실패했습니다.');
