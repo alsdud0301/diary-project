@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { GetServerSideProps } from 'next';
-import { PrismaClient } from '@prisma/client';
 import { useRouter } from 'next/router';
 import '../../components/css/diary.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

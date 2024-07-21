@@ -37,7 +37,7 @@ const Board = () => {
         return;
       }
 
-      const response = await axios.get('/api/diary', {
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/diary`, {
         params: { userID }
       });
 

@@ -27,7 +27,7 @@ const CreatePost = () => {
 
     const userID = storedUser.userID;
     try {
-      const response = await axios.post('/api/write', {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/write`, {
         diary_title: title,
         diary_content: content,
         userID,

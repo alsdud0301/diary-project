@@ -37,7 +37,7 @@ const EditPage : React.FC<Diary> = ({ diary }) => {
 
   const handleSubmit = async () => {
     try {
-      await axios.put(`/api/diary/${id}`, {
+      await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/diary/${id}`, {
         diary_title: title,
         diary_content: content,
         diary_date: selectedDate.toISOString(),
