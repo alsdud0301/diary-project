@@ -21,7 +21,6 @@ model Diary {
   id            Int      @id @default(autoincrement())
   diary_title   String
   diary_content String
-  imageUrl  String?
   published     Boolean  @default(false)
   authorId      String
   author        User    @relation(fields: [authorId], references: [userID])
