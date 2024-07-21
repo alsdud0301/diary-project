@@ -1,14 +1,20 @@
-import React from 'react';
+'use client'
+import React, { useEffect } from 'react';
 import Login from "@/components/Login"
 import { AuthProvider } from '../context/AuthContext';
-export const dynamic = "force-dynamic";
+import { useRouter } from 'next/navigation';
+
 const Home: React.FC = () => {
+  const route = useRouter()
+ 
+    useEffect(()=>{
+      route.replace('/login')
+    },[])
+    // <AuthProvider>
+    // <Login />
+    // </AuthProvider>
+    return null
+  
+}
 
-  return (
-    <AuthProvider>
-    <Login />
-    </AuthProvider>
-  );
-};
-
-export default Home;
+export default Home

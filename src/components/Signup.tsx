@@ -26,7 +26,6 @@ function Signup() {
             console.log("회원 가입 양식 데이터:", data); // 입력된 데이터 콘솔에 출력
             const response = await axios.post('/api/user', data);
             alert("회원가입이 완료되었습니다");
-            //router.push('/login')
             router.push("/login")
             console.log("서버 응답:", response); // 서버로부터의 응답
         } catch (error) {
