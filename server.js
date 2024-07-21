@@ -1,13 +1,13 @@
 require('dotenv').config(); // 환경 변수를 로드합니다.
-const { createServer } = require('http');
-const { parse } = require('url');
-const next = require('next');
-const express = require('express');
-const session = require('express-session');
-const { PrismaClient } = require('@prisma/client');
-const bcrypt = require('bcrypt');
-const Sequelize = require('sequelize');
-const connectSessionSequelize = require('connect-session-sequelize');
+import { createServer } from 'http';
+import { parse } from 'url';
+import next from 'next';
+import express, { json } from 'express';
+import session, { Store } from 'express-session';
+import { PrismaClient } from '@prisma/client';
+import { compare } from 'bcrypt';
+import Sequelize from 'sequelize';
+import connectSessionSequelize from 'connect-session-sequelize';
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -17,7 +17,7 @@ const prisma = new PrismaClient();
 
 const server = express();
 
-const SequelizeStore = connectSessionSequelize(session.Store);
+const SequelizeStore = connectSessionSequelize(Store);
 const sequelize = new Sequelize({
   dialect: 'sqlite',
   storage: './session.sqlite',
@@ -41,7 +41,7 @@ server.use(
 
 sessionStore.sync();
 
-server.use(express.json());
+server.use(json());
 
 server.post('/api/login', async (req, res) => {
   const { userID, password } = req.body;
@@ -55,7 +55,7 @@ server.post('/api/login', async (req, res) => {
       return res.status(401).json({ isSuccess: false, message: 'Invalid userID or password' });
     }
 
-    const passwordMatch = await bcrypt.compare(password, user.password);
+    const passwordMatch = await compare(password, user.password);
 
     if (!passwordMatch) {
       return res.status(401).json({ isSuccess: false, message: 'Invalid userID or password' });
