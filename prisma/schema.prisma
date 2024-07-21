@@ -15,7 +15,6 @@ model User {
   password String
   email     String   @unique
   posts     Diary[]
-  createdAt DateTime @default(now())
 }
 
 model Diary {
