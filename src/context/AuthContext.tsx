@@ -27,7 +27,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const login = async (userID: string, password: string) => {
 
     try {
-      const response = await axios.post('/api/login', { userID, password});
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/login`, { userID, password});
      
       if (response.data.isSuccess) {
         setUser(response.data.user);
@@ -44,7 +44,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const logout = async () => {
     console.log('Attempting to logout...'); // 로그아웃 시도 로그
     try {
-      await axios.post('/api/logout');
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/logout`);
       setUser(null);
       localStorage.removeItem('user');
       localStorage.removeItem('userID');
