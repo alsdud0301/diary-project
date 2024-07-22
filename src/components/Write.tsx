@@ -31,7 +31,7 @@ const CreatePost = () => {
         diary_title: title,
         diary_content: content,
         published: false,
-        authorId: userID,
+        userID,
         selectedDate
       });
       router.push('/board');

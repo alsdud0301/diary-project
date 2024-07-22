@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
-    const { diary_title, diary_content, userID, diary_date, selectedDate } = req.body;
+    const { diary_title, diary_content, userID, selectedDate } = req.body;
 
     if (!userID) {
       res.status(401).json({ error: 'Unauthorized' });
