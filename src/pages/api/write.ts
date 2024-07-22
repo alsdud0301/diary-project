@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
-    const { diary_title, diary_content,userID,diary_date,selectedDate } = req.body;
+    const { diary_title,authorId,diary_content,userID,diary_date,selectedDate } = req.body;
 
     if(userID){
       res.status(200).json({diary_content,diary_title,userID,diary_date,selectedDate})
@@ -20,8 +20,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         data: {
           diary_title,
           diary_content,
-          
-         author: { connect: { userID} },
+          published: false,
+          authorId: userID,
+        //  author: { connect: { userID} }, //이부분 수정
          diary_date:selectedDate
          
         },
