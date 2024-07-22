@@ -5,6 +5,7 @@
     border-radius: 0px 0px 10px 10px;
     /* position: absolute; */
     box-shadow: 0px 0px 10px 0px white;
+    border : 1px solid gray;
 }
 .diary_section{
     margin : 2% 15%;
@@ -20,7 +21,6 @@
     box-shadow: 0px 0px 10px 0px white;
     background-color: rgb(2, 113, 181);
     color : white;
-    border : 1px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,5 +49,9 @@
 }
 
 .edit_btn{
-    
+    background: white;
+    border: 2px solid #0271b5;
+    border-radius: 5px;
+    float: right;
+    padding : 5px;
 }
